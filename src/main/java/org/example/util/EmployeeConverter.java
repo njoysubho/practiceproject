@@ -1,4 +1,4 @@
-package org.example;
+package org.example.util;
 
 import org.example.domain.EmployeeDTO;
 import org.example.entity.Employee;

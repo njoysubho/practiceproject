@@ -2,9 +2,9 @@ package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.domain.EmployeeDTO;
+import org.example.entity.Employee;
 import org.example.exception.EmployeeNotFoundException;
 import org.example.service.EmployeeService;
-import org.example.util.EmployeeDataStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -69,7 +70,6 @@ public class EmployeeController {
 
     @RequestMapping(path = "/employees/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<EmployeeDTO> updateEmployee(@RequestBody EmployeeDTO employee, @PathVariable("id") Integer id) {
-
         EmployeeDTO updatedEmployee = employeeService.updateEmployee(id,employee);
         return new ResponseEntity<EmployeeDTO>(updatedEmployee, HttpStatus.OK);
     }
